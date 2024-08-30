@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>LDR BARBEARIA</title>
+    <style>
+        
+        body{
+            background-image: url("./images/plano\ de\ fundo.png");
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        .menu{
+            display:flex;
+            align-items: center;
+        }
+
+        @font-face {
+            font-family:'Cinzel Decorative';
+            src:url("./fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
+        }
+
+        .Logo{
+            font-family: Cinzel Decorative;
+        }
+
+        .inicio{
+            margin-left: 15%;
+            background-color: rgba(255,255,255,0.7);
+        }
+
+        .agendar{
+            background-color: rgba(255,255,255,0.7);
+        }
+
+        .agendamentos{
+            background-color: rgba(255,255,255,0.7);
+        }
+
+        .principal{
+            display:flex;
+        }
+
+        .Agenda{
+            background-color: rgba(255,255,255,0.7);
+            width: 190px;
+            height: 70px;
+            margin: auto;
+        }
+
+        .servicos{
+            border: 0;
+            background-color: rgba(255,255,255,0.7);
+            width: 117px;
+            height: 40px;
+        }
+
+        .Serviço{
+            font-family: Cinzel Decorative;
+        }
+
+        .lado-esquerdo{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        .lado-direito{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        .lista-servicos{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            height: 70vh;
+            margin: auto;
+            margin-top: 10%;
+            width: 50%;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .barbeiros{
+            background-color: rgba(255,255,255,0.7);
+        }
+
+        .data{
+            background-color: rgba(255,255,255,0.7);
+        }
+        
+        .hora{
+            background-color: rgba(255,255,255,0.7);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <h1 class="Logo">LDR BARBEARIA</h1>
+        <button class="inicio">Inicio</button>
+        <button class="agendar">Agendar</button>
+        <button class="agendamentos">Meus Agendamentos</button>
+    </div>
+    <hr>
+    <div class="principal">
+        <div class="lado-esquerdo">
+            
+            <h1 class="Serviço">SERVIÇOS</h1>
+            <hr style="width: 50%;">
+            <div class="lista-servicos">             
+                <button class="servicos">Barba</button>
+                <p>30 min - R$30,00</p>
+                <button class="servicos">Degrade</button>
+                <p>35 min - R$30,00</p>
+                <button class="servicos">Social</button>
+                <p>20 min - R$25,00</p>
+                <button class="servicos">Navalhado</button>
+                <p>35 min - R$35,00</p>
+                <button class="servicos">Sobrancelha</button>
+                <p>15 min - R$10,00</p>
+                <button class="servicos">Barba+Degrade</button>
+                <p>60 min - R$55,00</p>
+                <button class="servicos">Barba+Social</button>
+                <p>60 min - R$40,00</p>
+                <button class="servicos">Pigmentação</button>
+                <p>80 min - R$70,00</p>
+                <button class="servicos">Pintura/Nevou</button>
+                <p>120 min - R$150,00</p>
+                <button class="servicos">Reflexo</button>
+                <p>120 min - R$120,00</p>
+                <button class="servicos">Luzes</button>
+                <p>120 min - R$130,00</p>
+                <button class="servicos">Limpeza de pele</button>
+                <p>60 min - R$50,00</p>
+            </div>
+        </div>
+        <div class="lado-direito">
+            <p>Escolha seu barbeiro:</p>
+            <p>Escolha a data do agendamento:</p>
+            <button class="barbeiros" Luan></button>
+            <button class="data" Data></button>
+            <button class="hora" Hora></button> 
+            <button class="Agenda">Agendar</button>
+        </div>
+    </div>
+</body>
+</html>

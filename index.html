@@ -8,7 +8,7 @@
     <style>
         
         body{
-            background-image: url("./images/fundo.png");
+            background-image: url("./images/plano\ de\ fundo.png");
             background-size: cover;
             color: white;
             text-align: center;
@@ -17,17 +17,37 @@
         .menu{
             display:flex;
             align-items: center;
+         }
+
+        @font-face {
+            font-family:'Cinzel Decorative';
+            src:url("./fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
+        }
+
+        .Logo{
+            font-family: Cinzel Decorative;
         }
 
         .inicio{
             margin-left: 15%;
+            background-color: rgba(255,255,255,0.7);
         }
+
+        .agendar{
+            background-color: rgba(255,255,255,0.7);
+        }
+
+        .agendamentos{
+            background-color: rgba(255,255,255,0.7);
+        }
+
+
 
     </style>
 </head>
 <body>
     <div class="menu">
-        <h1>LDR BARBEARIA</h1>
+        <h1 class="Logo">LDR BARBEARIA</h1>
         <button class="inicio">Inicio</button>
         <button class="agendar">Agendar</button>
         <button class="agendamentos">Meus Agendamentos</button>

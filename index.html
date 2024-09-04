@@ -12,11 +12,13 @@
             background-size: cover;
             color: white;
             text-align: center;
+            backdrop-filter: blur(5px);
         }
 
         .menu{
             display:flex;
             align-items: center;
+            justify-content: space-evenly;
          }
 
         @font-face {
@@ -41,16 +43,34 @@
             background-color: rgba(255,255,255,0.7);
         }
 
+        .flex{
+            display: flex;
+            width: 250px;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-
+        .icones{
+            width: 400px;
+        }
     </style>
 </head>
 <body>
     <div class="menu">
         <h1 class="Logo">LDR BARBEARIA</h1>
-        <button class="inicio">Inicio</button>
-        <button class="agendar">Agendar</button>
-        <button class="agendamentos">Meus Agendamentos</button>
+        <div class="flex icones">
+            <button class="inicio">Inicio</button>
+            <button class="agendar">Agendar</button>
+            <button class="agendamentos">Meus Agendamentos</button>
+        </div>
+
+        <div class="flex icones">
+            <div class="roda"><img src="images/DeWatermark.ai_1725405442170-removebg-preview.png" alt="" style="width: 1.5rem;"></div>
+            <div class="whats"><img src="images/whatsapp.png " alt="" style="width: 2.5rem;"></div>
+            <div class="insta"><img src="images/instagram.png" alt="" style="width: 2.5rem;"></div>
+            <div class="mapa"><img src="images/mapas.png" alt="" style="width: 2.5rem;"></div>
+            <div class="relogio"><img src="images/relogio.png" alt="" style="width: 2.5rem;"></div>
+        </div>
     </div>
     <hr>
 </body>

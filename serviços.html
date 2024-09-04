@@ -12,11 +12,13 @@
             background-size: cover;
             color: white;
             text-align: center;
+            backdrop-filter: blur(5px);
         }
 
         .menu{
             display:flex;
             align-items: center;
+            justify-content: space-evenly;
         }
 
         @font-face {
@@ -81,8 +83,8 @@
             flex-wrap: wrap;
             height: 70vh;
             margin: auto;
-            margin-top: 10%;
-            width: 50%;
+            margin-top: 15%;
+            width: 65%;
             justify-content: flex-start;
             align-items: center;
         }
@@ -99,22 +101,44 @@
             background-color: rgba(255,255,255,0.7);
         }
 
+        .flex{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .icones{
+            width: 400px;
+        }
+
     </style>
 </head>
 <body>
     <div class="menu">
         <h1 class="Logo">LDR BARBEARIA</h1>
-        <button class="inicio">Inicio</button>
-        <button class="agendar">Agendar</button>
-        <button class="agendamentos">Meus Agendamentos</button>
+        <div class="flex icones">
+            <button class="inicio">Inicio</button>
+            <button class="agendar">Agendar</button>
+            <button class="agendamentos">Meus Agendamentos</button>
+        </div>
+
+        <div class="flex icones">
+          <div class="roda"><img src="images/DeWatermark.ai_1725405442170-removebg-preview.png" alt="" style="width: 1.5rem;"></div>
+                <div class="whats"><img src="images/whatsapp.png " alt="" style="width: 2.5rem;"></div>
+                <div class="insta"><img src="images/instagram.png" alt="" style="width: 2.5rem;"></div>
+                <div class="mapa"><img src="images/mapas.png" alt="" style="width: 2.5rem;"></div>
+                <div class="relogio"><img src="images/relogio.png" alt="" style="width: 2.5rem;"></div>
+        </div>
     </div>
+
+</div>
     <hr>
     <div class="principal">
         <div class="lado-esquerdo">
             
             <h1 class="Serviço">SERVIÇOS</h1>
             <hr style="width: 50%;">
-            <div class="lista-servicos">             
+            <div class="lista-servicos">     
                 <button class="servicos">Barba</button>
                 <p>30 min - R$30,00</p>
                 <button class="servicos">Degrade</button>
@@ -142,11 +166,15 @@
             </div>
         </div>
         <div class="lado-direito">
-            <p>Escolha seu barbeiro:</p>
-            <p>Escolha a data do agendamento:</p>
-            <button class="barbeiros" Luan></button>
-            <button class="data" Data></button>
-            <button class="hora" Hora></button> 
+            <div class="flex" style="width: 300px;">
+                <p>Escolha seu barbeiro:</p>
+                <button class="barbeiros">Luan</button>
+            </div>
+            <div class="flex" style="width: 500px;">
+                <p>Escolha a data do agendamento:</p>
+                <button class="data">Data</button>
+                <button class="hora">Hora</button> 
+            </div>
             <button class="Agenda">Agendar</button>
         </div>
     </div>

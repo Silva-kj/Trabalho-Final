@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Corte de Cabelo</title>
+    <style>
+         body{
+            background-image: url("./images/fundo.png");
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        .menu{
+            display:flex;
+            align-items: center;
+            justify-content: space-evenly;
+         }
+
+        @font-face {
+            font-family:'Cinzel Decorative';
+            src:url("./fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
+        }
+
+        .Logo{
+            font-family: 'Cinzel Decorative';
+            src:url("./fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
+        }
+
+        .inicio{
+            margin-left: 15%;
+            background-color: rgba(255,255,255,0.7);
+        }
+
+        .agendar{
+            background-color: rgba(255,255,255,0.7);
+        }
+
+        .agendamentos{
+            background-color: rgba(255,255,255,0.7);
+        }
+
+        .flex{
+            display: flex;
+            width: 250px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .icones{
+            width: 400px;
+        }
+
+        .crconta{
+            background-color: rgba(255,255,255,0.7);
+            display: flex;
+            width: 6%;
+            height: 40%;
+            font-size: 17px;
+        }
+
+        .criar{
+            display: flex;
+            color: white;
+            margin-right: auto;
+            align-items: center;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .cancel-btn {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .cancel-btn:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="criar">
+        <div class="conta"><img src="images/contacinza.png" alt="" style="width: 3rem;"></div>
+        <button class="crconta">Criar Conta</button>
+    </div>
+    <div class="menu">
+        <h1 class="Logo">LDR BARBEARIA</h1>
+        <div class="flex icones">
+            <button class="inicio">Inicio</button>
+            <button class="agendar">Agendar</button>
+            <button class="agendamentos">Meus Agendamentos</button>
+        </div>
+
+        <div class="flex icones">
+            <div class="roda"><img src="images/Screenshot_1-Photoroom.png" alt="" style="width: 1.5rem;"></div>
+            <div class="whats"><img src="images/whatsappverde.png" alt="" style="width: 2.5rem;"></div>
+            <div class="insta"><img src="images/instagramcolor.png" alt="" style="width: 2.5rem;"></div>
+            <div class="mapa"><img src="images/google-maps.png" alt="" style="width: 2.5rem;"></div>
+            <div class="relogio"><img src="images/tempo-rapido.png" alt="" style="width: 2.5rem;"></div>
+        </div>
+    </div>
+    <hr>
+<body>
+    <h1>Agendamentos de Corte de Cabelo</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Serviço</th>
+                <th>Barbeiro</th>
+                <th>Duração</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Valor</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody id="agendamentos">
+            <!-- Linhas de agendamento serão inseridas aqui pelo JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        // Dados de exemplo para os agendamentos
+        const agendamentos = [
+            { id: 1, servico: 'Corte de Cabelo', barbeiro: 'João', duracao: '30 min', data: '15/09/2024', horario: '10:00', valor: 'R$ 50,00' },
+            { id: 2, servico: 'Barba e Corte', barbeiro: 'Maria', duracao: '45 min', data: '16/09/2024', horario: '14:00', valor: 'R$ 80,00' },
+            { id: 3, servico: 'Barba e Corte', barbeiro: 'Maria', duracao: '45 min', data: '16/09/2024', horario: '14:00', valor: 'R$ 80,00' },
+        ];
+
+        // Função para carregar os agendamentos na tabela
+        function carregarAgendamentos() {
+            const tbody = document.getElementById('agendamentos');
+            tbody.innerHTML = ''; // Limpa o corpo da tabela antes de adicionar novos agendamentos
+
+            agendamentos.forEach(agendamento => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${agendamento.servico}</td>
+                    <td>${agendamento.barbeiro}</td>
+                    <td>${agendamento.duracao}</td>
+                    <td>${agendamento.data}</td>
+                    <td>${agendamento.horario}</td>
+                    <td>${agendamento.valor}</td>
+                    <td><button class="cancel-btn" onclick="cancelarAgendamento(${agendamento.id})">Cancelar</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Função para cancelar agendamento
+        function cancelarAgendamento(id) {
+            if (confirm('Tem certeza de que deseja cancelar este agendamento?')) {
+                // Remove o agendamento da lista
+                const index = agendamentos.findIndex(a => a.id === id);
+                if (index > -1) {
+                    agendamentos.splice(index, 1);
+                    carregarAgendamentos(); // Atualiza a tabela
+                    alert('Agendamento cancelado com sucesso.');
+                }
+            }
+        }
+
+        // Carrega os agendamentos na tabela ao carregar a página
+        window.onload = carregarAgendamentos;
+    </script>  
+</body>
+</html>

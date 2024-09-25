@@ -1,55 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Login</title>
 </head>
-    <style>
-        body{
-            background-image: url("./images/fundo.png");
-            background-size: cover;
-            color: white;
-            text-align: center;
-        }
+<style>
+    body {
+        background-image: url("./images/fundo.png");
+        background-size: cover;
+        color: white;
+        text-align: center;
+    }
 
-        @font-face {
-            font-family:'Cinzel Decorative';
-            src:url("./fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
-        }
+    @font-face {
+        font-family: 'Cinzel Decorative';
+        src: url("./fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
+    }
 
-        h1{
-            margin-top: 15%;
-            font-family: 'Cinzel Decorative';
-            font-size: 50px;
-        }
+    h1 {
+        margin-top: 15%;
+        font-family: 'Cinzel Decorative';
+        font-size: 50px;
+    }
 
-        .Login{
-            font-family: Cinzel Decorative;
-        }
+    .Login {
+        font-family: Cinzel Decorative;
+    }
 
-        input{
-            border-radius: 20px;
-        }
+    input {
+        border-radius: 20px;
+    }
 
-        a{
-            color: white;
-        }
-    </style>
+    a {
+        color: white;
+    }
+</style>
 </head>
+
 <body>
-<h1>ENTRAR</h1>
-<p class="Login"> <a href="registrar.html">Registre-se para continuar</a></p>
-<p>Nome</p>
-<input>
-<p>Email</p>
-<input>
-<p>Senha</p>
-<input>
-<br>
-<br>
-<a href="index.html" class="Reg"><button type="submit">Entrar</button></a>
+    <h1>ENTRAR</h1>
+    <p class="Login"> <a href="registrar.html">Registre-se para continuar</a></p>
+    <p>Nome</p>
+    <input>
+    <p>Email</p>
+    <input>
+    <p>Senha</p>
+    <input>
+    <br>
+    <br>
+    <button onclick="entrarsite()">Entrar</button>
+    <script>
+        function entrarsite() {
+            localStorage.setItem('usuario', JSON.stringify({ nome: 'ale', senha: '1623761' }))
+        }
+    </script>
 </body>
 
 </html>

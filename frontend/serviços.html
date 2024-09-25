@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Serviços</title>
+    <title>Agendamento de Serviços - Barbearia</title>
     <style>
         
         body{
@@ -130,14 +130,14 @@
 <body>
     <div class="criar">
         <div class="conta"><img src="images/contacinza.png" alt="" style="width: 3rem;"></div>
-        <button class="crconta">Criar Conta</button>
+        <a href="registrar.html" class="Reg"><button type="submit">Criar Conta</button></a>
     </div>
     <div class="menu">
         <h1 class="Logo">LDR BARBEARIA</h1>
         <div class="flex icones">
-            <button class="inicio">Inicio</button>
-            <button class="agendar">Agendar</button>
-            <button class="agendamentos">Meus Agendamentos</button>
+            <a href="index.html" class="Reg"><button type="submit">Inicio</button></a>
+            <a href="serviços.html" class="Reg"><button type="submit">Agendar</button></a>
+            <a href="agendamento.html" class="Reg"><button type="submit">Meus Agendamentos</button></a>
         </div>
 
         <div class="flex icones">
@@ -151,50 +151,189 @@
 
 </div>
     <hr>
-    <div class="principal">
-        <div class="lado-esquerdo">
-            
-            <h1 class="Serviço">SERVIÇOS</h1>
-            <hr style="width: 40%;">
-            <div class="lista-servicos">     
-                <button class="servicos">Barba</button>
-                <p>30 min - R$30,00</p>
-                <button class="servicos">Degrade</button>
-                <p>35 min - R$30,00</p>
-                <button class="servicos">Social</button>
-                <p>20 min - R$25,00</p>
-                <button class="servicos">Navalhado</button>
-                <p>35 min - R$35,00</p>
-                <button class="servicos">Sobrancelha</button>
-                <p>15 min - R$10,00</p>
-                <button class="servicos">Barba+Degrade</button>
-                <p>60 min - R$55,00</p>
-                <button class="servicos">Barba+Social</button>
-                <p>60 min - R$40,00</p>
-                <button class="servicos">Pigmentação</button>
-                <p>80 min - R$70,00</p>
-                <button class="servicos">Pintura/Nevou</button>
-                <p>120 min - R$150,00</p>
-                <button class="servicos">Reflexo</button>
-                <p>120 min - R$120,00</p>
-                <button class="servicos">Luzes</button>
-                <p>120 min - R$130,00</p>
-                <button class="servicos">Limpeza de pele</button>
-                <p>60 min - R$50,00</p>
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agendamento de Serviços - Barbearia</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f4f4f4;
+            }
+    
+            h1 {
+                text-align: center;
+                color: white;
+            }
+    
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+    
+            table, th, td {
+                border: 1px solid #ccc;
+            }
+    
+            th, td {
+                padding: 12px;
+                text-align: left;
+            }
+    
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+    
+            label {
+                font-weight: bold;
+            }
+    
+            .form-group {
+                margin-bottom: 15px;
+            }
+    
+            .form-group label, .form-group select, .form-group input {
+                display: block;
+                width: 100%;
+                margin-top: 10px;
+            }
+    
+            select, input[type="date"], input[type="time"], input[type="submit"] {
+                padding: 10px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+            }
+    
+            .submit-btn {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+            }
+    
+            .submit-btn:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <h1>Agendamento de Serviços - Barbearia</h1>
+    
+        <form action="/agendar" method="POST">
+            <table>
+                <tr>
+                    <th>Serviço</th>
+                    <th>Duração</th>
+                    <th>Preço</th>
+                    <th>Escolher</th>
+                </tr>
+                <tr>
+                    <td>Barba</td>
+                    <td>30 minutos</td>
+                    <td>R$ 30,00</td>
+                    <td><input type="checkbox" name="servico" value="Barba"></td>
+                </tr>
+                <tr>
+                    <td>Degrade</td>
+                    <td>35 minutos</td>
+                    <td>R$ 25,00</td>
+                    <td><input type="checkbox" name="servico" value="Degrade"></td>
+                </tr>
+                <tr>
+                    <td>Social</td>
+                    <td>20 minutos</td>
+                    <td>R$ 25,00</td>
+                    <td><input type="checkbox" name="servico" value="Social"></td>
+                </tr>
+                <tr>
+                    <td>Navalhado</td>
+                    <td>35 minutos</td>
+                    <td>R$ 35,00</td>
+                    <td><input type="checkbox" name="servico" value="Navalhado"></td>
+                </tr>
+                <tr>
+                    <td>Sobrancelha</td>
+                    <td>15 minutos</td>
+                    <td>R$ 10,00</td>
+                    <td><input type="checkbox" name="servico" value="Sobrancelha"></td>
+                </tr>
+                <tr>
+                    <td>Barba + Degrade</td>
+                    <td>60 minutos</td>
+                    <td>R$ 55,00</td>
+                    <td><input type="checkbox" name="servico" value="Barba+Degrade"></td>
+                </tr>
+                <tr>
+                    <td>Barba + Social</td>
+                    <td>60 minutos</td>
+                    <td>R$ 40,00</td>
+                    <td><input type="checkbox" name="servico" value="Barba+Social"></td>
+                </tr>
+                <tr>
+                    <td>Pigmentação</td>
+                    <td>80 minutos</td>
+                    <td>R$ 70,00</td>
+                    <td><input type="checkbox" name="servico" value="Pigmentacao"></td>
+                </tr>
+                <tr>
+                    <td>Pintura / Nevou</td>
+                    <td>120 minutos</td>
+                    <td>R$ 150,00</td>
+                    <td><input type="checkbox" name="servico" value="Pintura/Nevou"></td>
+                </tr>
+                <tr>
+                    <td>Reflexo</td>
+                    <td>120 minutos</td>
+                    <td>R$ 120,00</td>
+                    <td><input type="checkbox" name="servico" value="Reflexo"></td>
+                </tr>
+                <tr>
+                    <td>Luzes</td>
+                    <td>120 minutos</td>
+                    <td>R$ 130,00</td>
+                    <td><input type="checkbox" name="servico" value="Luzes"></td>
+                </tr>
+                <tr>
+                    <td>Limpeza de Pele</td>
+                    <td>50 minutos</td>
+                    <td>R$ 50,00</td>
+                    <td><input type="checkbox" name="servico" value="Limpeza de Pele"></td>
+                </tr>
+            </table>
+    
+            <div class="form-group">
+                <label for="barbeiro">Escolha o Barbeiro:</label>
+                <select id="barbeiro" name="barbeiro" required>
+                    <option value="">Selecione um barbeiro</option>
+                    <option value="Luan">Luan</option>
+                    <option value="Kauan">Kauan</option>
+                    <option value="Brown">Brown</option>
+                    <option value="Djonga">Djonga</option>
+                </select>
             </div>
-        </div>
-        <div class="lado-direito">
-            <div class="flex" style="width: 300px;">
-                <p>Escolha seu barbeiro:</p>
-                <button class="barbeiros">Luan</button>
+    
+            <div class="form-group">
+                <label for="data">Data do Agendamento:</label>
+                <input type="date" id="data" name="data" required>
             </div>
-            <div class="flex" style="width: 500px;">
-                <p>Escolha a data do agendamento:</p>
-                <button class="data">Data</button>
-                <button class="hora">Hora</button> 
+    
+            <div class="form-group">
+                <label for="hora">Horário do Agendamento:</label>
+                <input type="time" id="hora" name="hora" required>
             </div>
-            <button class="Agenda">Agendar</button>
-        </div>
-    </div>
+    
+            <input type="submit" class="submit-btn" value="Agendar">
+        </form>
+    
+    </body>
+    </html>
+    
 </body>
 </html>

@@ -87,14 +87,14 @@
 <body>
     <div class="criar">
         <div class="conta"><img src="images/contacinza.png" alt="" style="width: 3rem;"></div>
-        <button class="crconta">Criar Conta</button>
+        <a href="registrar.html" class="Reg"><button type="submit">Criar Conta</button></a>
     </div>
     <div class="menu">
         <h1 class="Logo">LDR BARBEARIA</h1>
         <div class="flex icones">
-            <button class="inicio">Inicio</button>
-            <button class="agendar">Agendar</button>
-            <button class="agendamentos">Meus Agendamentos</button>
+            <a href="index.html" class="Reg"><button type="submit">Inicio</button></a>
+            <a href="serviços.html" class="Reg"><button type="submit">Agendar</button></a>
+            <a href="agendamento.html" class="Reg"><button type="submit">Meus Agendamentos</button></a>
         </div>
 
         <div class="flex icones">
@@ -109,5 +109,11 @@
     <div class="container-banner">
         <div class="lado-esquerdo"><img src="images/logo2-removebg-preview.png" alt="" style="width: 60rem; margin-top: 13%; margin-left: 45%;"></div>
     </div>
+
+    <script>
+        
+
+        const usuario = JSON.parse(localStorage.getItem('usuario'))
+    </script>
 </body>
 </html>

@@ -1,64 +1,103 @@
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Registre-se</title>
 </head>
-    <style>
-        body{
-            background-image: url("./images/fundo.png");
-            background-size: cover;
-            color: white;
-            text-align: center;
-        }
-        
-        @font-face {
-            font-family:'Cinzel Decorative';
-            src:url("./fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
-        }
+<style>
+    body {
+        background-image: url("./images/fundo.png");
+        background-size: cover;
+        color: white;
+        text-align: center;
+    }
 
-        .Login{
-            font-family: Cinzel Decorative;
-        }
+    @font-face {
+        font-family: 'Cinzel Decorative';
+        src: url("./fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
+    }
 
-        a{
-            color: white;
-        }
+    .Login {
+        font-family: Cinzel Decorative;
+    }
 
-        h1{
-            margin-top: 7%;
-            font-family: 'Cinzel Decorative';
-            font-size: 50px;
-        }
+    a {
+        color: white;
+    }
 
-        .Reg{
-            color: black;
-        }
+    h1 {
+        margin-top: 7%;
+        font-family: 'Cinzel Decorative';
+        font-size: 50px;
+    }
 
-        input{
-            border-radius: 20px;
-        }
-    </style>
+    .Reg {
+        color: black;
+    }
+
+    input {
+        border-radius: 20px;
+    }
+</style>
 </head>
+
 <body>
-<h1>CADASTRE UMA NOVA CONTA</h1>
-<p class="Login"> <a href="login.html">Já é registrado? Então faça Login!</a></p>
-<p>Nome</p>
-<input>
-<p>Cpf</p>
-<input>
-<p>Email</p>
-<input>
-<p>Endereço/Opcional</p>
-<input>
-<p>Telefone</p>
-<input>
-<p>Senha</p>
-<input>
-<br>
-<br>
-<a href="index.html" class="Reg"><button type="submit">Registre-se</button></a>
+    <h1>CADASTRE UMA NOVA CONTA</h1>
+    <p class="Login"> <a href="login.html">Já é registrado? Então faça Login!</a></p>
+    <p>Nome</p>
+    <input id="nome">
+    <p>Cpf</p>
+    <input id="cpf">
+    <p>Email</p>
+    <input id="email">
+    <p>Endereço/Opcional</p>
+    <input id="endereco">
+    <p>Telefone</p>
+    <input id="telefone">
+    <p>Senha</p>
+    <input id="senha">
+    <br>
+    <br>
+    <button onclick="cadastrarPessoa()">Registre-se</button>
+
+    <script>
+        function cadastrarPessoa() {
+            // Captura os valores dos inputs
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const senha = document.getElementById('senha').value;
+            const endereco = document.getElementById('endereco').value;
+            const cpf = document.getElementById('cpf').value;
+
+
+            // Cria o objeto com os dados
+            const pessoa = {
+                nome: nome,
+                email: email,
+                telefone: telefone, // Converte a idade para número
+                senha: senha,
+                endereco: endereco,
+                cpf: cpf
+            };
+
+            // Faz a solicitação POST para o backend
+            fetch('http://localhost:3000/api/clientes', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(pessoa)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Pessoa cadastrada com sucesso!');
+                    // Limpar os campos de entrada após o envio
+                    window.location.href = "index.html"
+                })
+                .catch(error => alert(error))
+        }
+    </script>
 </body>
 
 </html>

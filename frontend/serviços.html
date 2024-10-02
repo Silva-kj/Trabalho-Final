@@ -151,8 +151,6 @@
 
 </div>
     <hr>
-    <!DOCTYPE html>
-    <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -185,7 +183,7 @@
             }
     
             th {
-                background-color: #4CAF50;
+                background-color: #333;
                 color: white;
             }
     
@@ -210,7 +208,7 @@
             }
     
             .submit-btn {
-                background-color: #4CAF50;
+                background-color: #333;
                 color: white;
                 border: none;
                 cursor: pointer;
@@ -218,7 +216,7 @@
             }
     
             .submit-btn:hover {
-                background-color: #45a049;
+                background-color: grey
             }
         </style>
     </head>
@@ -232,82 +230,85 @@
                     <th>Serviço</th>
                     <th>Duração</th>
                     <th>Preço</th>
-                    <th>Escolher</th>
                 </tr>
                 <tr>
                     <td>Barba</td>
                     <td>30 minutos</td>
                     <td>R$ 30,00</td>
-                    <td><input type="checkbox" onclick="salvar(this)" name="servico" value="Barba"></td>
                 </tr>
                 <tr>
                     <td>Degrade</td>
                     <td>35 minutos</td>
                     <td>R$ 25,00</td>
-                    <td><input type="checkbox" onclick="salvar(this)" name="servico" value="Degrade"></td>
                 </tr>
                 <tr>
                     <td>Social</td>
                     <td>20 minutos</td>
                     <td>R$ 25,00</td>
-                    <td><input type="checkbox" onclick="salvar(this)" name="servico" value="Social"></td>
-                </tr>
                 <tr>
                     <td>Navalhado</td>
                     <td>35 minutos</td>
                     <td>R$ 35,00</td>
-                    <td><input type="checkbox" onclick="salvar(this)" name="servico" value="Navalhado"></td>
                 </tr>
                 <tr>
                     <td>Sobrancelha</td>
                     <td>15 minutos</td>
                     <td>R$ 10,00</td>
-                    <td><input type="checkbox" onclick="salvar(this)" name="servico" value="Sobrancelha"></td>
                 </tr>
                 <tr>
                     <td>Barba + Degrade</td>
                     <td>60 minutos</td>
                     <td>R$ 55,00</td>
-                    <td><input type="checkbox" onclick="salvar(this)" name="servico" value="Barba+Degrade"></td>
-                </tr>
                 <tr>
                     <td>Barba + Social</td>
                     <td>60 minutos</td>
                     <td>R$ 40,00</td>
-                    <td><input type="checkbox" onclick="salvar(this)" name="servico" value="Barba+Social"></td>
                 </tr>
                 <tr>
                     <td>Pigmentação</td>
                     <td>80 minutos</td>
                     <td>R$ 70,00</td>
-                    <td><input type="checkbox" onclick="salvar(this)" name="servico" value="Pigmentacao"></td>
                 </tr>
                 <tr>
                     <td>Pintura / Nevou</td>
                     <td>120 minutos</td>
                     <td>R$ 150,00</td>
-                    <td><input type="checkbox" onclick="salvar(this)" name="servico" value="Pintura/Nevou"></td>
                 </tr>
                 <tr>
                     <td>Reflexo</td>
                     <td>120 minutos</td>
                     <td>R$ 120,00</td>
-                    <td><input type="checkbox" onclick="salvar(this)" name="servico" value="Reflexo"></td>
                 </tr>
                 <tr>
                     <td>Luzes</td>
                     <td>120 minutos</td>
                     <td>R$ 130,00</td>
-                    <td><input type="checkbox" onclick="salvar(this)" name="servico" value="Luzes"></td>
                 </tr>
                 <tr>
                     <td>Limpeza de Pele</td>
                     <td>50 minutos</td>
                     <td>R$ 50,00</td>
-                    <td><input type="checkbox" onclick="salvar(this)" name="servico" value="Limpeza de Pele"></td>
                 </tr>
             </table>
-    
+            <div class="form-group">
+                <label for="servico">Escolha o Serviço:</label>
+                <select id="servico" name="servico" required>
+                    <option value="">Selecione um serviço</option>
+                    <option value="Barba">Barba</option>
+                    <option value="Degrade">Degrade</option>
+                    <option value="Social">Social</option>
+                    <option value="Navalhado">Navalhado</option>
+                    <option value="Sobrancelha">Sobrancelha</option>
+                    <option value="Barba + Degrade">Barba + Degrade</option>
+                    <option value="Barba + Social">Barba + Social</option>
+                    <option value="Pigmentação">Pigmentação</option>
+                    <option value="Pintura / Nevou">Pintura / Nevou</option>
+                    <option value="Reflexo">Reflexo</option>
+                    <option value="Luzes">Luzes</option>
+                    <option value="Limpeza de Pele">Limpeza de Pele</option>
+                </select>
+            </div>
+
             <div class="form-group">
                 <label for="barbeiro">Escolha o Barbeiro:</label>
                 <select id="barbeiro" name="barbeiro" required>
@@ -333,19 +334,35 @@
         </div>
     
         <script>
-            function agendar(){
+        
+            function agendar() {
+                    const barbeiro = document.getElementById('barbeiro').value;
+                    const data = document.getElementById('data').value;
+                    const hora = document.getElementById('hora').value;
+                    const servico = document.getElementById('servico').value;
 
-            }
+                    const agendamento = {
+                        barbeiro: barbeiro,
+                        data: data,
+                        hora: hora,
+                        servico: servico,
+                    };
 
-            function salvar(botao){
-                const linha = botao.parentNode.parentNode
-
-                const servico = {
-                    nome: linha.cells[0].innerText,
-                    duracao: linha.cells[1].innerText,
-                    preco: linha.cells[2].innerText,
+                    fetch('http://localhost:3000/api/agendamentos', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(agendamento)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert(data.message);
+                        window.location.href = "agendamento.html"; // Redireciona ou limpa o formulário
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                        alert('Houve um erro ao agendar. Tente novamente.');
+                    });
                 }
-            }
         </script>
 </body>
 </html>

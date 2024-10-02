@@ -16,9 +16,11 @@ app.use(cors())
 
 // Importar rotas
 const produtosRoutes = require('./rotas/RotasCliente');
+const agendamentoRoutes = require('./rotas/RotasAgendamento');
 
 // Usar rotas
 app.use('/api', produtosRoutes);
+app.use('/api', agendamentoRoutes);
 
 // Iniciar o servidor
 const PORT = process.env.PORT || 3000;

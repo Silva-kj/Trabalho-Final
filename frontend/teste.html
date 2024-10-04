@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamento de Corte de Cabelo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Agendamento de Serviços - Barbearia</title>
     <style>
-         body{
+        
+        body{
             background-image: url("./images/fundo.png");
             background-size: cover;
             color: white;
@@ -16,7 +18,7 @@
             display:flex;
             align-items: center;
             justify-content: space-evenly;
-         }
+        }
 
         @font-face {
             font-family:'Cinzel Decorative';
@@ -24,8 +26,7 @@
         }
 
         .Logo{
-            font-family: 'Cinzel Decorative';
-            src:url("./fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
+            font-family: Cinzel Decorative;
         }
 
         .inicio{
@@ -41,9 +42,66 @@
             background-color: rgba(255,255,255,0.7);
         }
 
+        .principal{
+            display:flex;
+        }
+
+        .Agenda{
+            background-color: rgba(255,255,255,0.7);
+            width: 190px;
+            height: 70px;
+            margin: auto;
+        }
+
+        .servicos{
+            border: 0;
+            background-color: rgba(255,255,255,0.7);
+            width: 117px;
+            height: 40px;
+        }
+
+        .Serviço{
+            font-family: Cinzel Decorative;
+        }
+
+        .lado-esquerdo{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        .lado-direito{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        .lista-servicos{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            height: 60vh;
+            margin: auto;
+            margin-top: 15%;
+            width: 65%;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .barbeiros{
+            background-color: #ffffffb3;
+        }
+
+        .data{
+            background-color: rgba(255,255,255,0.7);
+        }
+        
+        .hora{
+            background-color: rgba(255,255,255,0.7);
+        }
+
         .flex{
             display: flex;
-            width: 250px;
             justify-content: space-between;
             align-items: center;
         }
@@ -67,125 +125,247 @@
             align-items: center;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #333;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        .cancel-btn {
-            background-color: #ff4d4d;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        .cancel-btn:hover {
-            background-color: #cc0000;
-        }
     </style>
-</head>
 <body>
     <div class="criar">
         <div class="conta"><img src="images/contacinza.png" alt="" style="width: 3rem;"></div>
-        <button class="crconta">Criar Conta</button>
+        <a href="registrar.html" class="Reg"><button type="submit">Criar Conta</button></a>
     </div>
     <div class="menu">
         <h1 class="Logo">LDR BARBEARIA</h1>
         <div class="flex icones">
-            <button class="inicio">Inicio</button>
-            <button class="agendar">Agendar</button>
-            <button class="agendamentos">Meus Agendamentos</button>
+            <a href="index.html" class="Reg"><button type="submit">Inicio</button></a>
+            <a href="serviços.html" class="Reg"><button type="submit">Agendar</button></a>
+            <a href="agendamento.html" class="Reg"><button type="submit">Meus Agendamentos</button></a>
         </div>
 
         <div class="flex icones">
-            <div class="roda"><img src="images/Screenshot_1-Photoroom.png" alt="" style="width: 1.5rem;"></div>
-            <div class="whats"><img src="images/whatsappverde.png" alt="" style="width: 2.5rem;"></div>
-            <div class="insta"><img src="images/instagramcolor.png" alt="" style="width: 2.5rem;"></div>
-            <div class="mapa"><img src="images/google-maps.png" alt="" style="width: 2.5rem;"></div>
-            <div class="relogio"><img src="images/tempo-rapido.png" alt="" style="width: 2.5rem;"></div>
+          <div class="roda"><img src="images/Screenshot_1-Photoroom.png" alt="" style="width: 1.5rem;"></div>
+                <div class="whats"><img src="images/whatsappverde.png" alt="" style="width: 2.5rem;"></div>
+                <div class="insta"><img src="images/instagramcolor.png" alt="" style="width: 2.5rem;"></div>
+                <div class="mapa"><img src="images/google-maps.png" alt="" style="width: 2.5rem;"></div>
+                <div class="relogio"><img src="images/tempo-rapido.png" alt="" style="width: 2.5rem;"></div>
         </div>
     </div>
+
+</div>
     <hr>
-<body>
-    <h1>Agendamentos de Corte de Cabelo</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Serviço</th>
-                <th>Barbeiro</th>
-                <th>Duração</th>
-                <th>Data</th>
-                <th>Horário</th>
-                <th>Valor</th>
-                <th>Ação</th>
-            </tr>
-        </thead>
-        <tbody id="agendamentos">
-            <!-- Linhas de agendamento serão inseridas aqui pelo JavaScript -->
-        </tbody>
-    </table>
-
-    <script>
-        // Dados de exemplo para os agendamentos
-        const agendamentos = [
-            { id: 1, servico: 'Corte de Cabelo', barbeiro: 'João', duracao: '30 min', data: '15/09/2024', horario: '10:00', valor: 'R$ 50,00' },
-            { id: 2, servico: 'Barba e Corte', barbeiro: 'Maria', duracao: '45 min', data: '16/09/2024', horario: '14:00', valor: 'R$ 80,00' },
-            { id: 3, servico: 'Barba e Corte', barbeiro: 'Maria', duracao: '45 min', data: '16/09/2024', horario: '14:00', valor: 'R$ 80,00' },
-        ];
-
-        // Função para carregar os agendamentos na tabela
-        function carregarAgendamentos() {
-            const tbody = document.getElementById('agendamentos');
-            tbody.innerHTML = ''; // Limpa o corpo da tabela antes de adicionar novos agendamentos
-
-            agendamentos.forEach(agendamento => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td>${agendamento.servico}</td>
-                    <td>${agendamento.barbeiro}</td>
-                    <td>${agendamento.duracao}</td>
-                    <td>${agendamento.data}</td>
-                    <td>${agendamento.horario}</td>
-                    <td>${agendamento.valor}</td>
-                    <td><button class="cancel-btn" onclick="cancelarAgendamento(${agendamento.id})">Cancelar</button></td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        // Função para cancelar agendamento
-        function cancelarAgendamento(id) {
-            if (confirm('Tem certeza de que deseja cancelar este agendamento?')) {
-                // Remove o agendamento da lista
-                const index = agendamentos.findIndex(a => a.id === id);
-                if (index > -1) {
-                    agendamentos.splice(index, 1);
-                    carregarAgendamentos(); // Atualiza a tabela
-                    alert('Agendamento cancelado com sucesso.');
-                }
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agendamento de Serviços - Barbearia</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f4f4f4;
             }
-        }
+    
+            h1 {
+                text-align: center;
+                color: white;
+            }
+    
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+    
+            table, th, td {
+                border: 1px solid #ccc;
+            }
+    
+            th, td {
+                padding: 12px;
+                text-align: left;
+            }
+    
+            th {
+                background-color: #333;
+                color: white;
+            }
+    
+            label {
+                font-weight: bold;
+            }
+    
+            .form-group {
+                margin-bottom: 15px;
+            }
+    
+            .form-group label, .form-group select, .form-group input {
+                display: block;
+                width: 100%;
+                margin-top: 10px;
+            }
+    
+            select, input[type="date"], input[type="time"], input[type="submit"] {
+                padding: 10px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+            }
+    
+            .submit-btn {
+                background-color: #333;
+                color: white;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+            }
+    
+            .submit-btn:hover {
+                background-color: grey
+            }
+        </style>
+    </head>
+    <body>
+    
+        <h1>Agendamento de Serviços - Barbearia</h1>
+    
+        <div>
+            <table>
+                <tr>
+                    <th>Serviço</th>
+                    <th>Duração</th>
+                    <th>Preço</th>
+                </tr>
+                <tr>
+                    <td>Barba</td>
+                    <td>30 minutos</td>
+                    <td>R$ 30,00</td>
+                </tr>
+                <tr>
+                    <td>Degrade</td>
+                    <td>35 minutos</td>
+                    <td>R$ 25,00</td>
+                </tr>
+                <tr>
+                    <td>Social</td>
+                    <td>20 minutos</td>
+                    <td>R$ 25,00</td>
+                <tr>
+                    <td>Navalhado</td>
+                    <td>35 minutos</td>
+                    <td>R$ 35,00</td>
+                </tr>
+                <tr>
+                    <td>Sobrancelha</td>
+                    <td>15 minutos</td>
+                    <td>R$ 10,00</td>
+                </tr>
+                <tr>
+                    <td>Barba + Degrade</td>
+                    <td>60 minutos</td>
+                    <td>R$ 55,00</td>
+                <tr>
+                    <td>Barba + Social</td>
+                    <td>60 minutos</td>
+                    <td>R$ 40,00</td>
+                </tr>
+                <tr>
+                    <td>Pigmentação</td>
+                    <td>80 minutos</td>
+                    <td>R$ 70,00</td>
+                </tr>
+                <tr>
+                    <td>Pintura / Nevou</td>
+                    <td>120 minutos</td>
+                    <td>R$ 150,00</td>
+                </tr>
+                <tr>
+                    <td>Reflexo</td>
+                    <td>120 minutos</td>
+                    <td>R$ 120,00</td>
+                </tr>
+                <tr>
+                    <td>Luzes</td>
+                    <td>120 minutos</td>
+                    <td>R$ 130,00</td>
+                </tr>
+                <tr>
+                    <td>Limpeza de Pele</td>
+                    <td>50 minutos</td>
+                    <td>R$ 50,00</td>
+                </tr>
+            </table>
+            <div class="form-group">
+                <label for="servico">Escolha o Serviço:</label>
+                <select id="servico" name="servico" required>
+                    <option value="">Selecione um serviço</option>
+                    <option value="Barba">Barba</option>
+                    <option value="Degrade">Degrade</option>
+                    <option value="Social">Social</option>
+                    <option value="Navalhado">Navalhado</option>
+                    <option value="Sobrancelha">Sobrancelha</option>
+                    <option value="Barba + Degrade">Barba + Degrade</option>
+                    <option value="Barba + Social">Barba + Social</option>
+                    <option value="Pigmentação">Pigmentação</option>
+                    <option value="Pintura / Nevou">Pintura / Nevou</option>
+                    <option value="Reflexo">Reflexo</option>
+                    <option value="Luzes">Luzes</option>
+                    <option value="Limpeza de Pele">Limpeza de Pele</option>
+                </select>
+            </div>
 
-        // Carrega os agendamentos na tabela ao carregar a página
-        window.onload = carregarAgendamentos;
-    </script>  
+            <div class="form-group">
+                <label for="barbeiro">Escolha o Barbeiro:</label>
+                <select id="barbeiro" name="barbeiro" required>
+                    <option value="">Selecione um barbeiro</option>
+                    <option value="Luan">Luan</option>
+                    <option value="Kauan">Kauan</option>
+                    <option value="Brown">Brown</option>
+                    <option value="Djonga">Djonga</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="data">Data do Agendamento:</label>
+                <input type="date" id="data" name="data" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="hora">Horário do Agendamento:</label>
+                <input type="time" id="hora" name="hora" required>
+            </div>
+    
+            <button class="submit-btn" onclick="agendar()">Agendar</button>
+        </div>
+    
+        <script>
+           const express = require('express');
+            const app = express();
+            const port = 3000;
+
+            // Simulando um banco de dados em memória
+            let agendamentos = [];
+
+            app.use(express.json());
+
+            // Rota para lidar com o envio do formulário de agendamento
+            app.post('/api/agendamentos', (req, res) => {
+            const novoAgendamento = req.body;
+
+            // Validação básica (adicione mais validações conforme necessário)
+            if (!novoAgendamento.servico || !novoAgendamento.data || !novoAgendamento.horario || !novoAgendamento.barbeiro) {
+                return res.status(400).json({ message: 'Por favor, preencha todos os campos obrigatórios.' });
+            }
+
+            // Adiciona o novo agendamento ao "banco de dados"
+            agendamentos.push(novoAgendamento);
+
+            console.log('Novo agendamento:', novoAgendamento);
+
+            res.json({ message: 'Agendamento criado com sucesso!', agendamento: novoAgendamento });
+            });
+
+            // Rota para obter todos os agendamentos (apenas para demonstração)
+            app.get('/api/agendamentos', (req, res) => {
+            res.json(agendamentos);
+            });
+
+            app.listen(port, () => {
+            console.log(`Servidor rodando na porta ${port}`);
+            });
+        </script>
 </body>
 </html>

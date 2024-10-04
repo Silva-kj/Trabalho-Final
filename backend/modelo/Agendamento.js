@@ -9,15 +9,25 @@ Agendamento.init({
         primaryKey: true,
         autoIncrement: true
     },
-    nome: {
-        type: DataTypes.STRING
-    },
-    cpf: {
-        type: DataTypes.STRING
-    },
     preco: {
         type: DataTypes.DECIMAL
+    },
+    servico: {
+        type: DataTypes.STRING
+    },
+    data: {
+        type: DataTypes.STRING
+    },
+    hora: {
+        type: DataTypes.STRING
+    },
+    duracao: {
+        type: DataTypes.STRING
+    },
+    barbeiro: {
+        type: DataTypes.STRING
     }
+
 }, {
     sequelize,
     modelName: 'Agendamento',

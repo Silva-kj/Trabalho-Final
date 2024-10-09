@@ -290,22 +290,25 @@
                     <td>R$ 50,00</td>
                 </tr>
             </table>
+    
+        <div>
+            
             <div class="form-group">
                 <label for="servico">Escolha o Serviço:</label>
                 <select id="servico" name="servico" required>
                     <option value="">Selecione um serviço</option>
-                    <option value="Barba">Barba</option>
-                    <option value="Degrade">Degrade</option>
-                    <option value="Social">Social</option>
-                    <option value="Navalhado">Navalhado</option>
-                    <option value="Sobrancelha">Sobrancelha</option>
-                    <option value="Barba + Degrade">Barba + Degrade</option>
-                    <option value="Barba + Social">Barba + Social</option>
-                    <option value="Pigmentação">Pigmentação</option>
-                    <option value="Pintura / Nevou">Pintura / Nevou</option>
-                    <option value="Reflexo">Reflexo</option>
-                    <option value="Luzes">Luzes</option>
-                    <option value="Limpeza de Pele">Limpeza de Pele</option>
+                    <option value='{"nome":"Barba","preco":30.00,"duracao":"30 minutos"}'>Barba</option>
+                    <option value='{"nome":"Degrade","preco":25.00,"duracao":"35 minutos"}'>Degrade</option>
+                    <option value='{"nome":"Social","preco":25.00,"duracao":"20 minutos"}'>Social</option>
+                    <option value='{"nome":"Navalhado","preco":35.00,"duracao":"35 minutos"}'>Navalhado</option>
+                    <option value='{"nome":"Sobrancelha","preco":10.00,"duracao":"15 minutos"}'>Sobrancelha</option>
+                    <option value='{"nome":"Barba + Degrade","preco":55.00,"duracao":"60 minutos"}'>Barba + Degrade</option>
+                    <option value='{"nome":"Barba + Social","preco":40.00,"duracao":"60 minutos"}'>Barba + Social</option>
+                    <option value='{"nome":"Pigmentação","preco":70.00,"duracao":"80 minutos"}'>Pigmentação</option>
+                    <option value='{"nome":"Pintura / Nevou","preco":150.00,"duracao":"120 minutos"}'>Pintura / Nevou</option>
+                    <option value='{"nome":"Reflexo","preco":120.00,"duracao":"120 minutos"}'>Reflexo</option>
+                    <option value='{"nome":"Luzes","preco":130.00,"duracao":"120 minutos"}'>Luzes</option>
+                    <option value='{"nome":"Limpeza de Pele","preco":50.00,"duracao":"50 minutos"}'>Limpeza de Pele</option>
                 </select>
             </div>
 
@@ -339,15 +342,16 @@
                     const barbeiro = document.getElementById('barbeiro').value;
                     const data = document.getElementById('data').value;
                     const hora = document.getElementById('hora').value;
-                    const servico = document.getElementById('servico').value;
-                    const duracao = document.getElementById('duracao').value;
-                    const preco = document.getElementById('preco').value;
+                    const servico = JSON.parse(document.getElementById('servico').value);
+                    const nome = servico.nome
+                    const duracao = servico.duracao;
+                    const preco = servico.preco;
 
                     const agendamento = {
                         barbeiro: barbeiro,
                         data: data,
                         hora: hora,
-                        servico: servico,
+                        servico: nome,
                         duracao: duracao,
                         preco: preco,
                     };

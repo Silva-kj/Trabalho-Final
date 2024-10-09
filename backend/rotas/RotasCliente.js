@@ -5,6 +5,9 @@ const ClienteController = require('../controlador/ControladorCliente');
 // Rota para criar um novo cliente
 router.post('/clientes', ClienteController.createCliente);
 
+// Rota para fazer login
+router.post('/login', ClienteController.login);
+
 // Rota para obter todos os clientes
 router.get('/clientes', ClienteController.getAllClientes);
 

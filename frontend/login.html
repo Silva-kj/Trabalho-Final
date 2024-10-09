@@ -6,55 +6,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Login</title>
-</head>
-<style>
-    body {
-        background-image: url("./images/fundo.png");
-        background-size: cover;
-        color: white;
-        text-align: center;
-    }
+    <style>
+        body {
+            background-image: url("./images/fundo.png");
+            background-size: cover;
+            color: white;
+            text-align: center;
+            font-family: 'Cinzel Decorative', sans-serif;
+        }
 
-    @font-face {
-        font-family: 'Cinzel Decorative';
-        src: url("./fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
-    }
+        @font-face {
+            font-family: 'Cinzel Decorative';
+            src: url("./fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
+        }
 
-    h1 {
-        margin-top: 15%;
-        font-family: 'Cinzel Decorative';
-        font-size: 50px;
-    }
+        h1 {
+            margin-top: 15%;
+            font-size: 50px;
+            font-family: 'Cinzel Decorative';
+        }
 
-    .Login {
-        font-family: Cinzel Decorative;
-    }
+        .login-link {
+            margin-top: 20px;
+        }
 
-    input {
-        border-radius: 20px;
-    }
+        input {
+            border-radius: 20px;
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+            max-width: 300px;
+            border: none; /* Remove a borda */
+            outline: none; /* Remove o contorno ao focar */
+            background: white; /* Cor de fundo suave */
+            color: black; /* Cor do texto */
+        }
 
-    a {
-        color: white;
-    }
-</style>
+        button {
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
     <h1>ENTRAR</h1>
-    <p class="Login"> <a href="registrar.html">Registre-se para continuar</a></p>
-    <p>Nome</p>
-    <input>
-    <p>Email</p>
-    <input>
-    <p>Senha</p>
-    <input>
-    <br>
-    <br>
-    <button onclick="entrarsite()">Entrar</button>
+    <p class="login-link">
+        <a href="registrar.html">Registre-se para continuar</a>
+    </p>
+    <div class="form">
+        
+        <label for="email">Email</label><br>
+        <input type="email" id="email" required><br>
+        
+        <label for="senha">Senha</label><br>
+        <input type="password" id="senha" required><br>
+
+        <button onclick="entrarpessoa()">Entrar</button>
+    </div>
+
     <script>
-        function entrarsite() {
-            localStorage.setItem('usuario', JSON.stringify({ nome: 'ale', senha: '1623761' }))
+        function entrarpessoa(event) {
+            // Captura os valores dos inputs
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+
+            // Cria o objeto com os dados
+            const pessoa = {
+                email: email,
+                senha: senha
+            };
+
+            // Faz a solicitação POST para o backend
+            fetch('http://localhost:3000/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(pessoa)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Pessoa logada com sucesso!');
+                    localStorage.setItem('usuario', data)
+                    window.location.href = "index.html";
+                })
+                .catch(error => alert(error));
         }
     </script>
 </body>

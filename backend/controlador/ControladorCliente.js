@@ -59,6 +59,29 @@ const ClienteController = {
         }
     },
 
+    login: async (req, res) => {
+        try {
+            console.log(req.body);
+            const cliente = await Cliente.findOne({
+                where: {
+                    email: req.body.email // Usa o e-mail que veio do frontend
+                }
+            });
+
+            if(!cliente){
+                res.status(400).send('Email ou senha incorreta')
+            }
+
+            if(req.body.senha == cliente.senha){
+                res.json(cliente)
+            } else {
+                res.status(400).send('Email ou senha incorreta')
+            }
+        } catch (error) {
+            res.status(500).send(error.message);
+        }
+    },
+
     // Implementação das funções de controle de estoque
     // registrarEntrada e registrarSaida
     // ... (a ser implementado)

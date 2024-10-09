@@ -5,97 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Registre-se</title>
-</head>
-<style>
-    body {
-        background-image: url("./images/fundo.png");
-        background-size: cover;
-        color: white;
-        text-align: center;
-    }
+    <style>
+        body {
+            background-image: url("./images/fundo.png");
+            background-size: cover;
+            color: white;
+            text-align: center;
+            font-family: 'Cinzel Decorative', sans-serif;
+        }
 
-    @font-face {
-        font-family: 'Cinzel Decorative';
-        src: url("./fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
-    }
+        @font-face {
+            font-family: 'Cinzel Decorative';
+            src: url("./fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
+        }
 
-    .Login {
-        font-family: Cinzel Decorative;
-    }
+        h1 {
+            margin-top: 7%;
+            font-size: 50px;
+            font-family: 'Cinzel Decorative';
+        }
 
-    a {
-        color: white;
-    }
+        .login-link {
+            color: white;
+            margin: 20px 0;
+        }
 
-    h1 {
-        margin-top: 7%;
-        font-family: 'Cinzel Decorative';
-        font-size: 50px;
-    }
+        input {
+            border-radius: 20px;
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+            max-width: 300px;
+            border: none; /* Remove a borda */
+            outline: none; /* Remove o contorno ao focar */
+            background: white; /* Fundo suave */
+            color: black; /* Cor do texto */
+        }
 
-    .Reg {
-        color: black;
-    }
+        button {
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
 
-    input {
-        border-radius: 20px;
-    }
-</style>
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
     <h1>CADASTRE UMA NOVA CONTA</h1>
-    <p class="Login"> <a href="login.html">Já é registrado? Então faça Login!</a></p>
-    <p>Nome</p>
-    <input id="nome">
-    <p>Cpf</p>
-    <input id="cpf">
-    <p>Email</p>
-    <input id="email">
-    <p>Endereço/Opcional</p>
-    <input id="endereco">
-    <p>Telefone</p>
-    <input id="telefone">
-    <p>Senha</p>
-    <input id="senha">
-    <br>
-    <br>
-    <button onclick="cadastrarPessoa()">Registre-se</button>
+    <p class="login-link">
+        <a href="login.html">Já é registrado? Então faça Login!</a>
+    </p>
+
+    <form onsubmit="cadastrarPessoa(event)">
+        <label for="nome">Nome</label><br>
+        <input id="nome" required><br>
+
+        <label for="email">Email</label><br>
+        <input id="email" required><br>
+
+        <label for="telefone">Telefone</label><br>
+        <input id="telefone" required><br>
+
+        <label for="senha">Senha</label><br>
+        <input id="senha" type="password" required><br>
+
+        <button type="submit">Registre-se</button>
+    </form>
 
     <script>
-        function cadastrarPessoa() {
+        function cadastrarPessoa(event) {
+            event.preventDefault(); // Previne o envio do formulário
+
             // Captura os valores dos inputs
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
             const telefone = document.getElementById('telefone').value;
             const senha = document.getElementById('senha').value;
-            const endereco = document.getElementById('endereco').value;
-            const cpf = document.getElementById('cpf').value;
-
 
             // Cria o objeto com os dados
             const pessoa = {
-                nome: nome,
-                email: email,
-                telefone: telefone, // Converte a idade para número
-                senha: senha,
-                endereco: endereco,
-                cpf: cpf
+                nome,
+                email,
+                telefone,
+                senha,
             };
 
             // Faz a solicitação POST para o backend
             fetch('http://localhost:3000/api/clientes', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(pessoa)
             })
                 .then(response => response.json())
                 .then(data => {
                     alert('Pessoa cadastrada com sucesso!');
-                    // Limpar os campos de entrada após o envio
-                    window.location.href = "index.html"
+                    window.location.href = "index.html";
                 })
-                .catch(error => alert(error))
+                .catch(error => alert(error));
         }
     </script>
 </body>

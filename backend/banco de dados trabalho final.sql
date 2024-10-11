@@ -18,55 +18,33 @@ USE `ldrbarbearia`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `agendamento`
+-- Table structure for table `agendamentos`
 --
 
-DROP TABLE IF EXISTS `agendamento`;
+DROP TABLE IF EXISTS `agendamentos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `agendamento` (
+CREATE TABLE `agendamentos` (
   `idagendamento` int NOT NULL AUTO_INCREMENT,
-  `hora_inicio` datetime NOT NULL,
-  `hora_fim` datetime NOT NULL,
-  `preco` decimal(7,2) NOT NULL,
-  `cliente_idcliente` int NOT NULL,
-  `barbeiros_idbarbeiros` int NOT NULL,
-  `agendamentocol` varchar(45) NOT NULL,
+  `servico` varchar(255) NOT NULL,
+  `barbeiro` varchar(255) NOT NULL,
+  `data` date NOT NULL,
+  `hora` time NOT NULL,
+  `duracao` varchar(40) DEFAULT NULL,
+  `preco` decimal(7,2) DEFAULT NULL,
+  `cliente_idcliente` int DEFAULT NULL,
   PRIMARY KEY (`idagendamento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `agendamento`
+-- Dumping data for table `agendamentos`
 --
 
-LOCK TABLES `agendamento` WRITE;
-/*!40000 ALTER TABLE `agendamento` DISABLE KEYS */;
-/*!40000 ALTER TABLE `agendamento` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `barbeiros`
---
-
-DROP TABLE IF EXISTS `barbeiros`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `barbeiros` (
-  `idbarbeiros` int NOT NULL,
-  `nome` varchar(45) NOT NULL,
-  `contato` varchar(45) NOT NULL,
-  PRIMARY KEY (`idbarbeiros`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `barbeiros`
---
-
-LOCK TABLES `barbeiros` WRITE;
-/*!40000 ALTER TABLE `barbeiros` DISABLE KEYS */;
-/*!40000 ALTER TABLE `barbeiros` ENABLE KEYS */;
+LOCK TABLES `agendamentos` WRITE;
+/*!40000 ALTER TABLE `agendamentos` DISABLE KEYS */;
+INSERT INTO `agendamentos` VALUES (3,'Social','Djonga','2024-10-10','13:30:00','20 minutos',25.00,NULL);
+/*!40000 ALTER TABLE `agendamentos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -77,14 +55,14 @@ DROP TABLE IF EXISTS `clientes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `clientes` (
-  `idcliente` int NOT NULL,
+  `idcliente` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
-  `cpf` char(14) NOT NULL,
+  `cpf` char(14) DEFAULT NULL,
   `email` varchar(45) NOT NULL,
   `telefone` varchar(45) NOT NULL,
   `senha` varchar(45) NOT NULL,
   PRIMARY KEY (`idcliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,32 +71,8 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+INSERT INTO `clientes` VALUES (1,'fghdf','fdghd','fghdf','fghdf','fghdf'),(2,'victor hugo rigueira zagulslki','10763371980','rigueiravitorr@gmail.com','47991081718','luvica1630'),(13,'guilherme',NULL,'guilherme@hotmail.com','328747128','teste'),(14,'mendes',NULL,'mendes@','123456','123456');
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `serviço`
---
-
-DROP TABLE IF EXISTS `serviço`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `serviço` (
-  `idserviço` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(45) NOT NULL,
-  `preco` decimal(7,2) NOT NULL,
-  `duracao` varchar(45) NOT NULL,
-  PRIMARY KEY (`idserviço`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `serviço`
---
-
-LOCK TABLES `serviço` WRITE;
-/*!40000 ALTER TABLE `serviço` DISABLE KEYS */;
-/*!40000 ALTER TABLE `serviço` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -130,4 +84,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-17 19:29:54
+-- Dump completed on 2024-10-10 21:23:27
